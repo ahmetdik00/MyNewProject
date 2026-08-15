@@ -1,0 +1,36 @@
+{
+	"name": "MyNewProject",
+	"version": "1.0.0",
+	"dependencies": {
+		"@cap-js/hana": "^2",
+		"@sap/cds": "^9",
+		"@sap/xssec": "^4"
+	},
+	"devDependencies": {
+		"@cap-js/sqlite": "^2.4",
+		"cds-plugin-ui5": "^0.17.0",
+		"@sap/dev-cap-tools": "^1.31.0"
+	},
+	"scripts": {
+		"start": "cds-serve",
+		"watch-purchases": "cds watch --open purchases/index.html?sap-ui-xx-viewCache=false --livereload false",
+		"watch-customers": "cds watch --open customers/index.html?sap-ui-xx-viewCache=false --livereload false",
+		"watch-redemptions": "cds watch --open redemptions/index.html?sap-ui-xx-viewCache=false --livereload false"
+	},
+	"private": true,
+	"cds": {
+		"requires": {
+			"[production]": {
+				"auth": "xsuaa"
+			}
+		}
+	},
+	"workspaces": [
+		"app/*"
+	],
+	"sapux": [
+		"app/purchases",
+		"app/customers",
+		"app/redemptions"
+	]
+}
