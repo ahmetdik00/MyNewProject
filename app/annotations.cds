@@ -251,3 +251,36 @@ annotate myNewProjectSrv.Redemptions with @UI.SelectionFields: [
   customer_ID
 ];
 
+annotate myNewProjectSrv.Books with @UI.HeaderInfo: { TypeName: 'Book', TypeNamePlural: 'Books', Title: { Value: title } };
+annotate myNewProjectSrv.Books with {
+  ID @UI.Hidden @Common.Text: { $value: title, ![@UI.TextArrangement]: #TextOnly }
+};
+annotate myNewProjectSrv.Books with @UI.Identification: [{ Value: title }];
+annotate myNewProjectSrv.Books with {
+  title @title: 'Title';
+  author @title: 'Author';
+  price @title: 'Price'
+};
+
+annotate myNewProjectSrv.Books with @UI.LineItem: [
+ { $Type: 'UI.DataField', Value: title },
+ { $Type: 'UI.DataField', Value: author },
+ { $Type: 'UI.DataField', Value: price }
+];
+
+annotate myNewProjectSrv.Books with @UI.FieldGroup #Main: {
+  $Type: 'UI.FieldGroupType', Data: [
+ { $Type: 'UI.DataField', Value: title },
+ { $Type: 'UI.DataField', Value: author },
+ { $Type: 'UI.DataField', Value: price }
+  ]
+};
+
+annotate myNewProjectSrv.Books with @UI.Facets: [
+  { $Type: 'UI.ReferenceFacet', ID: 'Main', Label: 'General Information', Target: '@UI.FieldGroup#Main' }
+];
+
+annotate myNewProjectSrv.Books with @UI.SelectionFields: [
+  title
+];
+

@@ -33,3 +33,10 @@ entity Redemptions : cuid {
   customer: Association to Customers;
 }
 
+@assert.unique: { title: [title] }
+entity Books : cuid {
+  title: String(100) @mandatory;
+  author: String(100);
+  price: Integer;
+}
+

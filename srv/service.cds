@@ -11,4 +11,6 @@ service myNewProjectSrv {
   entity Purchases as projection on my.Purchases;
   @odata.draft.enabled
   entity Redemptions as projection on my.Redemptions;
+  @odata.draft.enabled
+  entity Books as projection on my.Books;
 }
